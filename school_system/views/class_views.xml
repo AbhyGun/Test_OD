@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_kelas_tree" model="ir.ui.view">
+        <field name="name">sekolah.kelas.tree</field>
+        <field name="model">sekolah.kelas</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nm_kelas"/>
+                <field name="jurusan"/>
+                <field name="wali_kelas_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_kelas_form" model="ir.ui.view">
+        <field name="name">sekolah.kelas.form</field>
+        <field name="model">sekolah.kelas</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nm_kelas"/>
+                        <field name="jurusan"/>
+                        <field name="wali_kelas_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_kelas" model="ir.actions.act_window">
+        <field name="name">Kelas</field>
+        <field name="res_model">sekolah.kelas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

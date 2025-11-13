@@ -1,0 +1,20 @@
+{
+    'name': 'School System',
+    'version': '16.0.1.0.0',
+    'summary': 'Manajemen data sekolah (guru, siswa, kelas, jadwal)',
+    'author': 'PT Matrica Consulting Service',
+    'depends': ['base', 'web'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/cardformat.xml',
+        'views/teacher_views.xml',
+        'views/subjects_views.xml',
+        'views/student_views.xml',
+        'views/schedule_views.xml',
+        'views/class_views.xml',
+        'views/report/report_kartu_siswa.xml',
+        'views/report/report_action.xml',
+        'views/menu.xml',
+    ],
+    'installable': True,
+}

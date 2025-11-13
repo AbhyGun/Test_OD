@@ -1,0 +1,84 @@
+<odoo>
+    <!-- Graph view: jumlah guru per tahun lulus -->
+    <record id="view_guru_graph" model="ir.ui.view">
+        <field name="name">sekolah.guru.graph</field>
+        <field name="model">sekolah.guru</field>
+        <field name="arch" type="xml">
+            <graph string="Guru per Tahun Lulus" type="bar">
+                <field name="tahun_lulus" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_guru_search" model="ir.ui.view">
+        <field name="name">sekolah.guru.search</field>
+        <field name="model">sekolah.guru</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nm_guru"/>
+                <field name="nip"/>
+                <filter string="Laki-laki" name="laki" domain="[('jns_kelamin','=','L')]"/>
+                <filter string="Perempuan" name="perempuan" domain="[('jns_kelamin','=','P')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Tahun Lulus" name="group_tahun" context="{'group_by':'tahun_lulus'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree view -->
+    <record id="view_guru_tree" model="ir.ui.view">
+        <field name="name">sekolah.guru.tree</field>
+        <field name="model">sekolah.guru</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Guru">
+                <field name="nip"/>
+                <field name="nm_guru"/>
+                <field name="jns_kelamin"/>
+                <field name="tgl_lahir"/> 
+                <field name="usia"/>
+                <field name="pendidikan_terakhir"/>
+                <field name="tahun_lulus"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_guru_form" model="ir.ui.view">
+        <field name="name">sekolah.guru.form</field>
+        <field name="model">sekolah.guru</field>
+        <field name="arch" type="xml">
+            <form string="Guru">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nip"/>
+                            <field name="nm_guru"/>
+                            <field name="jns_kelamin"/>
+                            <field name="tgl_lahir"/>
+                            <field name="usia"/>
+                        </group>
+                        <group>
+                            <field name="tgi_badan"/>
+                            <field name="no_telp"/>
+                            <field name="alamat"/>
+                        </group>
+                    </group>
+                    <group string="Pendidikan">
+                        <field name="pendidikan_terakhir"/>
+                        <field name="jurusan"/>
+                        <field name="tahun_lulus"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_guru" model="ir.actions.act_window">
+        <field name="name">Guru</field>
+        <field name="res_model">sekolah.guru</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+</odoo>

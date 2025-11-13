@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_kartu_siswa">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="font-family: Arial, sans-serif; padding: 10px; position: relative;">
+                    <!-- Photo -->
+                    <div style="float:left;margin-right:15px;margin-bottom:10px">
+                        <t t-if="o.foto_pdf">
+                            <img t-att-src="'/school/image/%s/foto_pdf' % o.id"
+                                style="width:120px;height:150px;object-fit:cover;border:1px solid #ccc"/>
+                        </t>
+                        <t t-else="">
+                            <div style="width:120px;height:150px;border:1px solid #ccc;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#888">No Photo</div>
+                        </t>
+                    </div>
+                    <!-- Student Info -->
+                    <div style="overflow: hidden;">
+                        <h2 style="margin-top: 0; color: #2c3e50;">KARTU SISWA</h2>
+                        <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 30%;"><strong>NIS</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.nis"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nama</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.nm_siswa"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Jenis Kelamin</strong></td>
+                                <td>:</td>
+                                <td>
+                                    <t t-if="o.jns_kelamin == 'L'">Laki-laki</t>
+                                    <t t-if="o.jns_kelamin == 'P'">Perempuan</t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tanggal Lahir</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.tgl_lahir"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usia</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.usia"/> Tahun</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Agama</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.agama"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kelas</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.kelas_id.display_name"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nama Ayah</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.nm_ayah"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nama Ibu</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.nm_ibu"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alamat</strong></td>
+                                <td>:</td>
+                                <td><t t-esc="o.alamat"/></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="text-align:right;margin-top:20px">
+                        <t t-if="o.qr_code">
+                            <img t-att-src="'/school/image/%s/qr_code' % o.id"
+                                style="width:80px;height:80px"/>
+                            <p style="font-size:10px;margin-top:5px">Scan untuk verifikasi NIS</p>
+                        </t>
+                        <t t-else="">
+                            <div style="color:red">QR tidak tersedia</div>
+                        </t>
+                    </div>
+
+                    <div style="clear: both; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px; font-size: 11px;">
+                        <p style="text-align: center; color: #7f8c8d;">Dikeluarkan oleh Sekolah • Tahun Ajaran 2025/2026</p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

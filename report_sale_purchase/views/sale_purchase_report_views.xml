@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_sale_purchase_report_wizard_form" model="ir.ui.view">
+        <field name="name">sale.purchase.report.wizard.form</field>
+        <field name="model">sale.purchase.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Sale &amp; Purchase Report">
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+                <footer>
+                    <button string="Generate Excel" type="object" name="action_generate_excel" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_purchase_report_wizard" model="ir.actions.act_window">
+        <field name="name">Sale &amp; Purchase Report</field>
+        <field name="res_model">sale.purchase.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_reporting_root" name="Reporting" sequence="100"/>
+    <menuitem id="menu_sale_purchase_report" name="Sale &amp; Purchase Report"
+              parent="menu_reporting_root"
+              action="action_sale_purchase_report_wizard"/>
+</odoo>

@@ -1,0 +1,105 @@
+<odoo>
+    <!-- Search view (filter jenis kelamin) -->
+    <record id="view_siswa_search" model="ir.ui.view">
+        <field name="name">sekolah.siswa.search</field>
+        <field name="model">sekolah.siswa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nis"/>
+                <field name="nm_siswa"/>
+                <filter string="Laki-laki" name="laki" domain="[('jns_kelamin','=','L')]"/>
+                <filter string="Perempuan" name="perempuan" domain="[('jns_kelamin','=','P')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Kelas" name="group_kelas" context="{'group_by':'kelas_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="view_siswa_tree" model="ir.ui.view">
+        <field name="name">sekolah.siswa.tree</field>
+        <field name="model">sekolah.siswa</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Siswa">
+                <field name="nis"/>
+                <field name="nm_siswa"/>
+                <field name="jns_kelamin"/>
+                <field name="kelas_id"/>
+                <field name="usia"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_siswa_form" model="ir.ui.view">
+        <field name="name">sekolah.siswa.form</field>
+        <field name="model">sekolah.siswa</field>
+        <field name="arch" type="xml">
+            <form string="Siswa">
+                <sheet>
+                    <field name="foto" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="nis" class="oe_edit_only"/>
+                        <h1><field name="nis"/></h1>
+                        <label for="nm_siswa" class="oe_edit_only"/>
+                        <h2><field name="nm_siswa"/></h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="jns_kelamin"/>
+                            <field name="tgl_lahir"/>
+                            <field name="usia"/>
+                            <field name="agama"/>
+                        </group>
+                        <group>
+                            <field name="kelas_id"/>
+                            <field name="nm_ayah"/>
+                            <field name="nm_ibu"/>
+                        </group>
+                    </group>
+                    <field name="alamat" placeholder="Alamat lengkap..."/>
+                    <notebook>
+                        <page string="QR Code" name="qr">
+                            <field name="qr_code" widget="image" class="text-center"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban -->
+    <record id="view_siswa_kanban" model="ir.ui.view">
+        <field name="name">sekolah.siswa.kanban</field>
+        <field name="model">sekolah.siswa</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="nm_siswa"/>
+                <field name="nis"/>
+                <field name="kelas_id"/>
+                <field name="foto"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('sekolah.siswa', 'foto', record.id.raw_value)" alt="Foto" class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong><field name="nm_siswa"/></strong>
+                                <div>NIS: <field name="nis"/></div>
+                                <div>Kelas: <field name="kelas_id"/></div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_siswa" model="ir.actions.act_window">
+        <field name="name">Siswa</field>
+        <field name="res_model">sekolah.siswa</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+</odoo>
