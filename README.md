@@ -55,4 +55,6 @@ Jawaban soal B:
 5. Untuk nomor 5: 
 ![no5b](images/no5b.png)
 6. Untuk Nomor 6:
+
+
 ![no6b](images/no6b.png)
