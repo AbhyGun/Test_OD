@@ -75,6 +75,7 @@
         <field name="model">sekolah.siswa</field>
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile">
+                <field name="id"/>          
                 <field name="nm_siswa"/>
                 <field name="nis"/>
                 <field name="kelas_id"/>
@@ -83,7 +84,8 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card">
                             <div class="o_kanban_image">
-                                <img t-att-src="kanban_image('sekolah.siswa', 'foto', record.id.raw_value)" alt="Foto" class="o_image_64_contain"/>
+                                <img t-att-src="kanban_image('sekolah.siswa', 'foto', record.id.raw_value)" 
+                                    alt="Foto" class="o_image_64_contain"/>
                             </div>
                             <div class="oe_kanban_details">
                                 <strong><field name="nm_siswa"/></strong>
