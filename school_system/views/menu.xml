@@ -10,6 +10,4 @@
     <menuitem id="menu_sekolah_transaksi" name="Transaksi" parent="menu_sekolah_root" sequence="2"/>
     <menuitem id="menu_jadwal" name="Jadwal" parent="menu_sekolah_transaksi" action="action_jadwal" sequence="1"/>
 
-    <menuitem id="menu_sekolah_laporan" name="Laporan" parent="menu_sekolah_root" sequence="3"/>
-    <menuitem id="menu_kartu_siswa" name="Kartu Siswa" parent="menu_sekolah_laporan" action="action_report_kartu_siswa" sequence="1"/>
 </odoo>

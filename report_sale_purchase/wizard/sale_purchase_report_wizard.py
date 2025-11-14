@@ -20,7 +20,6 @@ class SalePurchaseReportWizard(models.TransientModel):
         if not self.start_date or not self.end_date:
             raise UserError("Please set both start and end dates.")
 
-        # Ambil semua product yang ada di SO atau PO dalam rentang tanggal
         self.env.cr.execute("""
             SELECT p.id, p.name
             FROM product_product p
@@ -93,7 +92,6 @@ class SalePurchaseReportWizard(models.TransientModel):
         output = workbook.filename
         output.seek(0)
 
-        # Return sebagai attachment
         attachment = self.env['ir.attachment'].create({
             'name': f'SalePurchaseReport_{self.start_date}_to_{self.end_date}.xlsx',
             'type': 'binary',

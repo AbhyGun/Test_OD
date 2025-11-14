@@ -9,7 +9,7 @@ import time
 
 _logger = logging.getLogger(__name__)
 
-API_SECRET = "school_system_api_secret_2025"
+API_SECRET = "tS"
 TOKEN_EXPIRY = 3600  
 
 def generate_token():
@@ -130,7 +130,6 @@ class AttendanceAPI(http.Controller):
 
     @http.route('/api/token', type='http', auth='none', methods=['GET'], csrf=False)
     def get_token(self):
-        """Endpoint bantu: generate token (hanya untuk dev/test)"""
         token = generate_token()
         return request.make_response(
             json.dumps({'token': token}),

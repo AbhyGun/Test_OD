@@ -93,3 +93,8 @@ Jawaban soal B:
 
 
 ![no6b](images/no6b.png)
+
+
+
+Untuk nomor 2 (Mid Dev)
+Saya sering dapat case seperti hal tersebut, mungkin jika butuh portofolio saya bisa show, namun karena di local dan dan tidak ada third party API, saya tidak bisa mendevelopnya, karena ketika di trigger by postman selalu 404
