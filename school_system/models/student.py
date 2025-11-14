@@ -2,6 +2,11 @@ from odoo import api, fields, models
 import base64
 import qrcode
 from io import BytesIO
+from PIL import Image   
+import io               
+import logging
+
+_logger = logging.getLogger(__name__)
 
 class Siswa(models.Model):
     _name = 'sekolah.siswa'
