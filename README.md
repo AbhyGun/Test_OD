@@ -72,6 +72,30 @@ Jawaban soal B:
 
 
 ![no1b](images/nomor1b.png)
+
+
+Form Siswa
+
+![formsiswa](images/formsiswa.png)
+
+
+Form Guru
+
+![formguru](images/formguru.png)
+
+
+Form Kelas
+
+![formkelas](images/formkelas.png)
+
+
+Form Matapelajaran
+
+
+![formmatapelajaran](images/formmatapelajaran.png)
+
+
+
 2. Bisa di cek By code
 
 
